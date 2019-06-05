@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
+import Login from './components/login';
+import { Row, Col } from 'antd';
+import 'antd/dist/antd.css';
+import { PageHeader } from 'antd';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const routes = [
+  {
+    path: 'index',
+    breadcrumbName: 'First-level Menu',
+  },
+  {
+    path: 'first',
+    breadcrumbName: 'Second-level Menu',
+  },
+  {
+    path: 'second',
+    breadcrumbName: 'Third-level Menu',
+  },
+];
+
+
+ class App extends React.Component {
+
+
+  render() {
+    return (
+      <div>
+      <Row>
+      <Col span={8}></Col>
+      <Col span={8}>
+      <PageHeader title="Ecomerce App" breadcrumb={{ routes }} />
+      <p></p>
+      <Login></Login>
+      </Col>
+        <Col span={8}></Col>
+      </Row>
     </div>
-  );
-}
+    )
+ }
+ }
+
 
 export default App;
